@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.BorrowDao">
+    <resultMap id="borrow" type="entity.Borrow">
+        <id column="id" property="id"></id>
+        <result column="borrowTime" property="borrowTime"></result>
+        <result column="returnTime" property="returnTime"></result>
+        <result column="state" property="state"></result>
+        <association property="book" javaType="entity.Book" select="dao.BookDao.findById" column="bookid"></association>
+        <association property="reader" javaType="entity.Reader" select="dao.ReaderDao.reader" column="readerid"></association>
+    </resultMap>
+    <insert id="insert" >
+        insert into borrow(bookid,readerid,borrowtime,returntime,state) values(#{arg0},#{arg1},#{arg2},#{arg3},0)
+    </insert>
+
+    <select id="findAllByReaderId" resultMap="borrow">
+        select id,bookid,borrowtime,returntime,readerid,state from borrow where readerid=#{arg0} limit #{arg1},#{arg2}
+    </select>
+
+    <select id="count" parameterType="int" resultType="int">
+        select count(*) from borrow where readerid=#{readerid}
+    </select>
+
+    <select id="findBorrowByState" resultMap="borrow">
+        select id,bookid,borrowtime,returntime,readerid,state from borrow where state=#{arg0} limit #{arg1},#{arg2}
+    </select>
+
+    <select id="countByState" parameterType="int" resultType="int">
+        select count(*) from borrow where state=#{state}
+    </select>
+
+    <update id="handleBorrow">
+        update borrow set adminid=#{arg1},state=#{arg2} where id=#{arg0}
+    </update>
+</mapper>

@@ -2,11 +2,10 @@ package service.impl;
 
 import dao.BookDao;
 import dao.BorrowDao;
-import dao.impl.BookDaoImpl;
-import dao.impl.BorrowDaoImpl;
 import entity.Book;
 import entity.Borrow;
 import service.BookService;
+import utils.DBTools;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -15,8 +14,8 @@ import java.util.List;
 
 public class BookServiceImpl implements BookService {
     public static final int LIMIT = 10;
-    BookDao bookDao = new BookDaoImpl();
-    BorrowDao borrowDao = new BorrowDaoImpl();
+    BookDao bookDao = DBTools.getSession().getMapper(BookDao.class);
+    BorrowDao borrowDao = DBTools.getSession().getMapper(BorrowDao.class);
 
     @Override
     public List<Book> findAll(int page) {

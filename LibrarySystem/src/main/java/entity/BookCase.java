@@ -12,6 +12,14 @@ public class BookCase {
         this.id = id;
     }
 
+    @Override
+    public String toString() {
+        return "BookCase{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
+
     public String getName() {
         return name;
     }

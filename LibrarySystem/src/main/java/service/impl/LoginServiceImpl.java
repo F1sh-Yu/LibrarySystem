@@ -2,16 +2,13 @@ package service.impl;
 
 import dao.AdminDao;
 import dao.ReaderDao;
-import dao.impl.AdminDaoImpl;
-import dao.impl.ReaderDaoImpl;
-import entity.Admin;
-import entity.Reader;
 import service.LoginService;
+import utils.DBTools;
 
 public class LoginServiceImpl implements LoginService {
 
-    ReaderDao readerDao = new ReaderDaoImpl();
-    AdminDao adminDao = new AdminDaoImpl();
+    ReaderDao readerDao = DBTools.getSession().getMapper(ReaderDao.class);
+    AdminDao adminDao = DBTools.getSession().getMapper(AdminDao.class);
 
     @Override
     public Object login(String username, String password,String type) {

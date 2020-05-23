@@ -8,6 +8,9 @@ public class Borrow {
     private String returnTime;
     private int state;
 
+    public Borrow() {
+    }
+
     @Override
     public String toString() {
         return "Borrow{" +

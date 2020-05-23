@@ -7,6 +7,7 @@ public class Book {
     private String publish;
     private int pages;
     private float price;
+    private BookCase bookCase;
 
     public Book() {
     }
@@ -30,7 +31,6 @@ public class Book {
         this.publish = publish;
     }
 
-    private BookCase bookCase;
 
     public int getId() {
         return id;
