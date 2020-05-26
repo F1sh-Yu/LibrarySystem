@@ -50,7 +50,7 @@
 	</div>
 	<div id="footer">
 		<div class="foot_content">
-			CopyRight &copy; 2008 www.**********.com 西安市*****有限公司
+			CopyRight &copy; 2008 www.**********.com
 		</div>
 		<div class="foot_content">
 			版权所有 Library V1.0

@@ -2,25 +2,10 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <settings>
-        <setting name="logImpl" value="STDOUT_LOGGING" />
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
     </settings>
-    <environments default="library">
-        <environment id="library">
-            <transactionManager type="JDBC"></transactionManager>
-            <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/Library?useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false"/>
-                <property name="username" value="root"/>
-                <property name="password" value="wqnmlgb!"/>
-            </dataSource>
-        </environment>
-    </environments>
 
-    <mappers>
-        <mapper resource="mapper/ReaderDao.xml"></mapper>
-        <mapper resource="mapper/AdminDao.xml"></mapper>
-        <mapper resource="mapper/BookDao.xml"></mapper>
-        <mapper resource="mapper/BookCaseDao.xml"></mapper>
-        <mapper resource="mapper/BorrowDao.xml"></mapper>
-    </mappers>
+    <typeAliases>
+        <package name="com.jason.entity"/>
+    </typeAliases>
 </configuration>

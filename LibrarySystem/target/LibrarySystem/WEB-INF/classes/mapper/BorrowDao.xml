@@ -2,14 +2,14 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="dao.BorrowDao">
-    <resultMap id="borrow" type="entity.Borrow">
+<mapper namespace="com.jason.dao.BorrowDao">
+    <resultMap id="borrow" type="com.jason.entity.Borrow">
         <id column="id" property="id"></id>
         <result column="borrowTime" property="borrowTime"></result>
         <result column="returnTime" property="returnTime"></result>
         <result column="state" property="state"></result>
-        <association property="book" javaType="entity.Book" select="dao.BookDao.findById" column="bookid"></association>
-        <association property="reader" javaType="entity.Reader" select="dao.ReaderDao.reader" column="readerid"></association>
+        <association property="book" javaType="com.jason.entity.Book" select="com.jason.dao.BookDao.findById" column="bookid"></association>
+        <association property="reader" javaType="com.jason.entity.Reader" select="com.jason.dao.ReaderDao.reader" column="readerid"></association>
     </resultMap>
     <insert id="insert" >
         insert into borrow(bookid,readerid,borrowtime,returntime,state) values(#{arg0},#{arg1},#{arg2},#{arg3},0)

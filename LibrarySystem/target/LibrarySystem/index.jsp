@@ -32,7 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					return;
 				}
 				page++;
-				location.href = "/book?page="+page;
+				location.href = "/book/findAll?page="+page;
 			})
 			$("#previous").click(function () {
 				var page = parseInt($("#currentPage").html());
@@ -40,14 +40,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					return;
 				}
 				page--;
-				location.href = "/book?page="+page;
+				location.href = "/book/findAll?page="+page;
 			})
 			$("#first").click(function () {
-				location.href = "/book?page=1";
+				location.href = "/book/findAll";
 			})
 			$("#last").click(function () {
 				var pages = parseInt($("#pages").html());
-				location.href = "/book?page="+pages;
+				location.href = "/book/findAll?page="+pages;
 			})
 		})
 	</script>
@@ -58,8 +58,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   	<div id="main">
 		<div class="navigation">
-				当前位置:&nbsp;&nbsp;<a href="book.do">首页</a>
-				<div id="readerBlock">欢迎回来&nbsp;:<a href="/book?method=findAllBorrow&page=1">${sessionScope.user.name }</a>&nbsp;<a href="/logout">注销</a></div>
+				当前位置:&nbsp;&nbsp;<a href="/book/findAll">首页</a>
+				<div id="readerBlock">欢迎回来&nbsp;:<a href="/book/findAll">${sessionScope.user.name }</a>&nbsp;<a href="/logout">注销</a></div>
 		</div>
 		<div class="img_block">
 			<img src="images/main_booksort.gif" class="img" />
@@ -87,7 +87,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td>${book.price}</td>
 					<td>${book.bookCase.name}</td>
 					<td>
-						<a href="/book?method=addBorrow&bookid=${book.id}">借阅</a>
+						<a href="/book/addBorrow?bookid=${book.id}">借阅</a>
 					</td>
 				</tr>
 			</c:forEach>

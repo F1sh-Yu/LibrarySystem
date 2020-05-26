@@ -32,7 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					  return;
 				  }
 				  page++;
-				  location.href = "/admin?method=getBorrowed&page="+page;
+				  location.href = "/admin/getBorrowed?page="+page;
 			  })
 
 			  $("#previous").click(function () {
@@ -41,16 +41,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					  return;
 				  }
 				  page--;
-				  location.href = "/admin?method=getBorrowed&page="+page;
+				  location.href = "/admin/getBorrowed?page="+page;
 			  })
 
 			  $("#first").click(function () {
-				  location.href = "/admin?method=getBorrowed&page=1";
+				  location.href = "/admin/getBorrowed";
 			  })
 
 			  $("#last").click(function(){
 				  var pages = parseInt($("#pages").html());
-				  location.href = "/admin?method=getBorrowed&page="+pages;
+				  location.href = "/admin/getBorrowed?page="+pages;
 			  })
 		  })
 	  </script>
@@ -62,7 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	
   	<div id="main">
 		<div class="navigation">
-				当前位置:&nbsp;&nbsp;<a href="/admin?page=1">借书管理</a>
+				当前位置:&nbsp;&nbsp;<a href="/admin/findBorrowByState">借书管理</a>
 				<div id="readerBlock">欢迎回来&nbsp;:${admin.username }&nbsp;<a href="/logout">注销</a></div>
 		</div>
 		<div class="img_block">
@@ -112,7 +112,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					${borrow.returnTime }
 				</td>
 				<td>
-					<a href="/admin?method=handle&id=${borrow.id }&state=3">归还</a>
+					<a href="/admin/handle?id=${borrow.id }&state=3">归还</a>
 				</td>
 			</tr>
 			</c:forEach>
@@ -120,7 +120,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</table>
 		<hr class="hr"/>
 		<div id="pageControl">
-			<div class="pageControl_item">每页<font id="dataPrePage">${dataPrePage }</font>条数据</div>
+			<div class="pageControl_item">每页<font id="dataPerPage">${dataPrePage }</font>条数据</div>
 			<div class="pageControl_item" id="last">最后一页</div>
 			<div class="pageControl_item" id="next">下一页</div>
 			<div class="pageControl_item"><font id="currentPage">${currentPage }</font>/<font id="pages">${pages }</font></div>

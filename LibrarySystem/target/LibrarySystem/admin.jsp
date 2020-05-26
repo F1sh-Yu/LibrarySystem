@@ -32,7 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					  return;
 				  }
 				  page++;
-				  location.href = "/admin?page="+page;
+				  location.href = "/admin/getBorrowed?page="+page;
 			  })
 
 			  $("#previous").click(function () {
@@ -41,16 +41,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					  return;
 				  }
 				  page--;
-				  location.href = "/admin?page="+page;
+				  location.href = "/admin/getBorrowed?page="+page;
 			  })
 
 			  $("#first").click(function () {
-				  location.href = "/admin?page=1";
+				  location.href = "/admin/getBorrowed";
 			  })
 
 			  $("#last").click(function(){
 				  var pages = parseInt($("#pages").html());
-				  location.href = "/admin?page="+pages;
+				  location.href = "/admin/getBorrowed?page="+pages;
 			  })
 		  })
 	  </script>
@@ -62,7 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	
   	<div id="main">
 		<div class="navigation">
-				当前位置:&nbsp;&nbsp;<a href="/admin?method=getBorrowed&page=1">还书管理</a>
+				当前位置:&nbsp;&nbsp;<a href="/admin/getBorrowed">还书管理</a>
 				<div id="readerBlock">欢迎回来&nbsp;:${user.username }&nbsp;<a href="logout">注销</a></div>
 		</div>
 		<div class="img_block">
@@ -93,8 +93,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td>${borrow.borrowTime}</td>
 					<td>${borrow.returnTime}</td>
 					<td>
-						<a href="/admin?method=handle&id=${borrow.id}&state=1">同意</a>
-						<a href="/admin?method=handle&id=${borrow.id}&state=2">拒绝</a>
+						<a href="/admin/handle?id=${borrow.id}&state=1">同意</a>
+						<a href="/admin/handle?id=${borrow.id}&state=2">拒绝</a>
 					</td>
 				</tr>
 			</c:forEach>

@@ -2,8 +2,8 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="dao.BookCaseDao">
-    <select id="find" parameterType="int" resultType="entity.BookCase">
+<mapper namespace="com.jason.dao.BookCaseDao">
+    <select id="find" parameterType="int" resultType="com.jason.entity.BookCase">
         select * from bookcase where id=#{id}
     </select>
 </mapper>

@@ -32,7 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					  return;
 				  }
 				  page++;
-				  location.href = "/book?method=findAllBorrow&page="+page;
+				  location.href = "/book/findAllBorrow?page="+page;
 			  })
 
 			  $("#previous").click(function () {
@@ -41,16 +41,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					  return;
 				  }
 				  page--;
-				  location.href = "/book?method=findAllBorrow&page="+page;
+				  location.href = "/book/findAllBorrow?page="+page;
 			  })
 
 			  $("#first").click(function () {
-				  location.href = "/book?method=findAllBorrow&page=1";
+				  location.href = "/book/findAllBorrow";
 			  })
 
 			  $("#last").click(function(){
 				  var pages = parseInt($("#pages").html());
-				  location.href = "/book?method=findAllBorrow&page="+pages;
+				  location.href = "/book/findAllBorrow&page="+pages;
 			  })
 		  })
 	  </script>
@@ -62,7 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   	
   	<div id="main">
 		<div class="navigation">
-				当前位置:&nbsp;&nbsp;<a href="/book?page=1">首页</a>
+				当前位置:&nbsp;&nbsp;<a href="/book/findAll">首页</a>
 				<div id="readerBlock">欢迎回来&nbsp;:${user.name }&nbsp;<a href="/logout">注销</a></div>
 		</div>
 		<div class="img_block">
